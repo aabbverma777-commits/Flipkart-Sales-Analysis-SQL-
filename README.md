@@ -1,750 +1,955 @@
-# 🛒 Flipkart Sales Analysis — SQL Data Analytics Project
+<div align="center">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Data%20Analysis-SQL-00A98F?style=for-the-badge&logo=databricks&logoColor=white" alt="Data Analysis">
-  <img src="https://img.shields.io/badge/Project-Flipkart%20Sales-2874F0?style=for-the-badge" alt="Flipkart Sales">
-  <img src="https://img.shields.io/badge/Author-Abhishek%20Verma-111827?style=for-the-badge&logo=github&logoColor=white" alt="Author">
-</p>
+# 🛒 Flipkart E-Commerce Sales Analysis
 
-<p align="center">
-  <strong>📊 A beginner-friendly SQL Data Analytics project focused on analyzing sales, customers, products, payments, geography, and delivery performance.</strong>
-</p>
+### 📊 SQL Data Analytics Project using MySQL
+
+<img src="https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Data%20Analytics-SQL-orange?style=for-the-badge&logo=googleanalytics&logoColor=white">
+<img src="https://img.shields.io/badge/Database-Flipkart-blue?style=for-the-badge&logo=databricks&logoColor=white">
+<img src="https://img.shields.io/badge/Project-Business%20Analysis-success?style=for-the-badge">
+
+
+
+### 🚀 Turning E-Commerce Data into Meaningful Business Insights Using SQL
+
+</div>
 
 ---
 
+# 📑 Table of Contents
 
-------------------------------------------------------------------------
+- [📖 Project Overview](#-project-overview)
+- [🎯 Project Objectives](#-project-objectives)
+- [📂 Dataset Information](#-dataset-information)
+- [🗂️ Dataset Structure](#️-dataset-structure)
+- [🔗 Dataset Relationships](#-dataset-relationships)
+- [🛠️ Tools & Technologies](#️-tools--technologies)
+- [🧠 SQL Concepts Used](#-sql-concepts-used)
+- [🔄 Data Analysis Workflow](#-data-analysis-workflow)
+- [📊 Business Questions Covered](#-business-questions-covered)
+- [📈 Analysis Areas](#-analysis-areas)
+- [💡 Key Insights](#-key-insights)
+- [🧮 Sample SQL Queries](#-sample-sql-queries)
+- [📁 Project Structure](#-project-structure)
+- [🚀 How to Run the Project](#-how-to-run-the-project)
+- [🌟 Skills Demonstrated](#-skills-demonstrated)
+- [🏁 Conclusion](#-conclusion)
+- [👨‍💻 Author](#-author)
 
-# 📌 Table of Contents
-
--   [📖 Project Overview](#-project-overview)
--   [🎯 Project Objectives](#-project-objectives)
--   [🗂️ Database Structure](#️-database-structure)
--   [📊 Dataset Tables](#-dataset-tables)
--   [🧠 SQL Concepts Used](#-sql-concepts-used)
--   [🔍 Analysis Covered](#-analysis-covered)
--   [💼 Business Questions](#-business-questions)
--   [📈 Business Insights](#-business-insights)
--   [💡 Key Findings](#-key-findings)
--   [🛠️ Tools & Technologies](#️-tools--technologies)
--   [🚀 How to Run the Project](#-how-to-run-the-project)
--   [📁 Project Structure](#-project-structure)
--   [📌 Conclusion](#-conclusion)
--   [👨‍💻 Author](#-author)
-
-------------------------------------------------------------------------
+---
 
 # 📖 Project Overview
 
-**Flipkart Sales Analysis** is a SQL-based data analytics project
-designed to analyze an e-commerce sales database and extract useful
-business information.
+**Flipkart E-Commerce Sales Analysis** is a SQL-based Data Analytics project
+developed using **MySQL**.
 
-The project works with three main tables:
+The main purpose of this project is to analyze e-commerce data related to:
 
--   👥 `customers`
--   📦 `products`
--   🛍️ `sales`
+- 👥 Customers
+- 📦 Products
+- 🛒 Sales & Orders
+- 🌍 Geographic Performance
+- 💳 Payment Behavior
+- 🚚 Delivery Performance
+- 💰 Revenue
+- 🏷️ Discounts
+- ⭐ Product Ratings & Reviews
+- 🔁 Customer Repeat Purchases
 
-The analysis starts with basic data exploration and gradually moves into
-aggregation, filtering, `GROUP BY`, `HAVING`, `CASE`, joins, subqueries
-and business-oriented analysis.
+The project transforms raw transactional data into meaningful
+**business insights using SQL queries**.
 
-The main purpose is to convert raw sales data into meaningful
-information about:
+The SQL project contains **52 business questions and SQL solutions** covering
+basic data exploration, aggregations, joins, CASE statements, date functions,
+and subqueries.
 
-> **Revenue • Customers • Products • Categories • Brands • Payments •
-> Geography • Orders • Discounts • Ratings • Delivery**
-
-------------------------------------------------------------------------
+---
 
 # 🎯 Project Objectives
 
-### The project aims to answer questions such as:
+### 💰 Sales & Revenue Analysis
+- Analyze total revenue
+- Calculate average order value
+- Identify high-value orders
+- Analyze monthly, quarterly and yearly revenue
 
-  Area            Business Question
-  --------------- --------------------------------------------------------
-  💰 Revenue      How much revenue is generated?
-  🛒 Sales        How many products and orders are sold?
-  👥 Customers    Who are the most valuable and repeat customers?
-  📦 Products     Which products generate the most revenue?
-  🏷️ Categories   Which categories contribute most to sales?
-  ⭐ Ratings      How are products rated by customers?
-  💳 Payments     Which payment methods are most frequently used?
-  🌍 Geography    Which states and cities generate the most revenue?
-  🎁 Discounts    How are discounts distributed across products?
-  🚚 Delivery     What is the average delivery time and success rate?
-  📈 Trends       How does revenue change monthly, quarterly and yearly?
+### 👥 Customer Analysis
+- Understand customer purchasing behavior
+- Analyze customer age groups
+- Identify repeat customers
+- Find high-value customers
+- Analyze customer tiers
 
-------------------------------------------------------------------------
+### 📦 Product Analysis
+- Identify top-performing products
+- Analyze product categories and brands
+- Analyze product quantity sold
+- Analyze product ratings and reviews
 
-# 🗂️ Database Structure
+### 🌍 Geographic Analysis
+- Analyze state-wise revenue
+- Analyze city-wise revenue
+- Identify high-performing states and cities
 
-The project uses a simple relational database containing three major
-tables.
+### 💳 Payment Analysis
+- Identify payment methods
+- Compare payment methods by revenue and order count
 
-``` text
-                    ┌────────────────────┐
-                    │     CUSTOMERS      │
-                    ├────────────────────┤
-                    │ Customer_ID        │
-                    │ Customer_Name      │
-                    │ Customer_Tier      │
-                    │ Total_Spent        │
-                    │ Gender             │
-                    └─────────┬──────────┘
-                              │
-                              │ Customer_ID
-                              │
-                    ┌─────────▼──────────┐
-                    │       SALES        │
-                    ├────────────────────┤
-                    │ Order_ID           │
-                    │ Order_Date         │
-                    │ Customer_ID       │
-                    │ Product_ID        │
-                    │ Total_Amount      │
-                    │ Quantity          │
-                    │ City              │
-                    │ State             │
-                    │ Payment_Mode      │
-                    │ Order_Status      │
-                    │ Delivery_Date     │
-                    │ Rating            │
-                    └─────────┬──────────┘
-                              │
-                              │ Product_ID
-                              │
-                    ┌─────────▼──────────┐
-                    │      PRODUCTS      │
-                    ├────────────────────┤
-                    │ Product_ID         │
-                    │ Product_Name       │
-                    │ Category           │
-                    │ Brand              │
-                    │ Discount_Percent   │
-                    │ Original_Price     │
-                    │ Selling_Price      │
-                    │ Avg_Rating         │
-                    │ Total_Reviews      │
-                    │ Stock_Quantity     │
-                    └────────────────────┘
+### 🚚 Delivery Analysis
+- Calculate delivery success percentage
+- Calculate average delivery time
+- Compare delivery performance across states
+
+### 🏷️ Discount Analysis
+- Analyze discount percentages
+- Create discount buckets
+- Compare original and selling prices
+
+---
+
+# 📂 Dataset Information
+
+The project uses an e-commerce dataset consisting of **three major tables**:
+
+| 🗃️ Table | 📌 Description |
+|---|---|
+| 👥 `customers` | Customer master data |
+| 📦 `products` | Product and catalog data |
+| 🛒 `sales` | Order-level transaction data |
+
+### 🗄️ Database
+
+```text
+flipkart_db
 ```
 
-------------------------------------------------------------------------
-
-# 📊 Dataset Tables
-
-## 👥 `customers`
-
-Contains customer-level information.
-
-**Important columns:**
-
--   `Customer_ID`
--   `Customer_Name`
--   `Customer_Tier`
--   `Total_Spent`
--   `Gender`
-
-------------------------------------------------------------------------
-
-## 📦 `products`
-
-Contains product information, pricing, ratings and inventory details.
-
-**Important columns:**
-
--   `Product_ID`
--   `Product_Name`
--   `Category`
--   `Brand`
--   `Discount_Percent`
--   `Original_Price`
--   `Selling_Price`
--   `Avg_Rating`
--   `Total_Reviews`
--   `Stock_Quantity`
-
-------------------------------------------------------------------------
-
-## 🛍️ `sales`
-
-Contains individual order/sales records.
-
-**Important columns:**
-
--   `Order_ID`
--   `Order_Date`
--   `Customer_ID`
--   `Product_ID`
--   `Total_Amount`
--   `Quantity`
--   `City`
--   `State`
--   `Payment_Mode`
--   `Order_Status`
--   `Customer_Age_Group`
--   `Delivery_Date`
--   `Rating`
-
-------------------------------------------------------------------------
-
-# 🧠 SQL Concepts Used
-
-This project focuses on practical SQL concepts that are useful for a
-beginner-to-intermediate Data Analyst.
-
-### 🔹 Basic SQL
-
--   `SELECT`
--   `FROM`
--   `WHERE`
--   `DISTINCT`
--   `ORDER BY`
--   `LIMIT`
-
-### 🔹 Aggregation
-
--   `COUNT()`
--   `SUM()`
--   `AVG()`
--   `MIN()`
--   `MAX()`
--   `ROUND()`
-
-### 🔹 Grouping
-
--   `GROUP BY`
--   `HAVING`
-
-### 🔹 Conditional Analysis
-
--   `CASE`
--   `WHEN`
--   `THEN`
--   `ELSE`
-
-### 🔹 Table Relationships
-
--   `INNER JOIN`
--   `LEFT JOIN`
-
-### 🔹 Subqueries
-
-Used for comparisons against:
-
--   Average order value
--   Average product rating
--   Average state revenue
--   Repeat customers
--   Customer spending
-
-### 🔹 Date Analysis
-
--   `YEAR()`
--   `MONTH()`
--   `MONTHNAME()`
--   `QUARTER()`
--   `DATEDIFF()`
-
-### 🔹 Data Handling
-
--   `COALESCE()`
--   `NULL` checks
--   `TRIM()`
-
-------------------------------------------------------------------------
-
-# 🔍 Analysis Covered
-
-The project explores the following areas:
-
-``` text
-📊 Overall Sales
-      ↓
-💰 Revenue Analysis
-      ↓
-📅 Monthly / Quarterly / Yearly Trends
-      ↓
-🌍 State & City Analysis
-      ↓
-👥 Customer Analysis
-      ↓
-📦 Product & Category Analysis
-      ↓
-🏷️ Brand Analysis
-      ↓
-💳 Payment Analysis
-      ↓
-🎁 Discount & Pricing Analysis
-      ↓
-⭐ Rating & Review Analysis
-      ↓
-🚚 Delivery Analysis
-      ↓
-💼 Business Insights
-
-------------------------------------------------------------------------
-
-# 📈 Business Insights
-
-The following insights are based on the dashboard observations
-documented in the SQL project. The listed questions can be used to
-validate each observation against the underlying data.
-
-------------------------------------------------------------------------
-
-## 🚀 1. Sales Show Strong Growth
-
-The dashboard highlights a positive sales trend over time, with multiple
-high-performing months.
-
-
-
-------------------------------------------------------------------------
-
-## 🌍 2. Top States Drive Maximum Sales
-
-The dashboard identifies **Uttar Pradesh, Rajasthan and Haryana** among
-the states contributing the highest sales.
-
-
-
-
-
-------------------------------------------------------------------------
-
-## 👥 3. Young Customers Lead Purchases
-
-The dashboard shows the **26--35 age group** as the largest contributor
-to total sales, followed by **18--25** and **36--45**.
-
-
-
-
-------------------------------------------------------------------------
-
-## 💳 4. UPI Is the Most Preferred Payment Method
-
-The dashboard highlights **UPI** as the most preferred payment method,
-followed by COD, Debit Card and Credit Card.
-
-
-
-------------------------------------------------------------------------
-
-## 🚚 5. High Order Delivery Success
-
-The dashboard indicates that a large majority of orders are successfully
-delivered.
-
-This can be evaluated using order status, delivery percentage and
-delivery-time analysis.
-
-
-
-------------------------------------------------------------------------
-
-## 🤝 6. Strong Customer Base & Engagement
-
-The dashboard highlights a high number of unique customers and repeat
-orders, helping analyze customer engagement.
-
-
-
-
-------------------------------------------------------------------------
-
-# 💡 Key Findings Framework
-
-The project can be used to answer six major business areas:
-
-### 💰 Revenue
-
-Identify:
-
--   Total revenue
--   Average order value
--   Revenue by state
--   Revenue by city
--   Revenue by category
--   Revenue by brand
--   Revenue by payment mode
--   Revenue contribution percentages
-
-### 👥 Customers
-
-Identify:
-
--   Total customers
--   Repeat customers
--   High-value customers
--   Customer spending segments
--   Customer tiers
--   Age-group purchasing behavior
-
-### 📦 Products
-
-Identify:
-
--   Best-selling products
--   Highest-revenue products
--   Products with high reviews
--   Products with high ratings
--   Low-stock products
--   Products with high discounts
-
-### 💳 Payments
-
-Compare:
-
--   UPI
--   COD
--   Debit Card
--   Credit Card
--   Order count
--   Revenue
--   Average order value
-
-### 🌍 Geography
-
-Analyze:
-
--   States
--   Cities
--   State revenue
--   Top 10 states
--   Top 10 cities
--   Unique customers by state
-
-### 🚚 Delivery
-
-Analyze:
-
--   Delivery success percentage
--   Average delivery days
--   State-wise delivery time
--   Order status
--   Revenue by order status
-
-------------------------------------------------------------------------
+### 💻 Database System
+
+```text
+MySQL 8+
+```
+
+---
+
+# 🗂️ Dataset Structure
+
+## 👥 1. Customers Table
+
+```text
+customers
+│
+├── Customer_ID
+├── Customer_Name
+├── Gender
+├── Age
+├── Age_Group
+├── Date_of_Birth
+├── Email
+├── Phone
+├── City
+├── State
+├── Pincode
+├── Registration_Date
+├── Customer_Tier
+├── Total_Orders
+└── Total_Spent
+```
+
+**Used for:** customer segmentation, customer tiers, customer value,
+geographic analysis and repeat-customer analysis.
+
+---
+
+## 📦 2. Products Table
+
+```text
+products
+│
+├── Product_ID
+├── Product_Name
+├── Category
+├── Brand
+├── Original_Price
+├── Discount_Percent
+├── Discount_Amount
+├── Selling_Price
+├── Stock_Quantity
+├── Weight_kg
+├── Avg_Rating
+└── Total_Reviews
+```
+
+**Used for:** product, category, brand, pricing, discount, rating and review analysis.
+
+---
+
+## 🛒 3. Sales Table
+
+Important analytical fields include:
+
+```text
+sales
+│
+├── Order_ID
+├── Customer_ID
+├── Product_ID
+├── Order_Date
+├── Delivery_Date
+├── Quantity
+├── Total_Amount
+├── Order_Status
+├── Payment_Mode
+├── Customer_Age_Group
+├── City
+└── State
+```
+
+**Used for:** revenue, orders, payment, delivery, customer, geographic
+and time-based analysis.
+
+---
+
+# 🔗 Dataset Relationships
+
+```text
+                    ┌───────────────────────┐
+                    │       👥 CUSTOMERS     │
+                    │    Customer_ID        │
+                    │    Customer_Name      │
+                    │    Customer_Tier      │
+                    └───────────┬───────────┘
+                                │
+                                │ Customer_ID
+                                ▼
+                    ┌───────────────────────┐
+                    │        🛒 SALES       │
+                    │    Order_ID           │
+                    │    Customer_ID        │
+                    │    Product_ID         │
+                    │    Total_Amount       │
+                    │    Payment_Mode       │
+                    │    Order_Date         │
+                    └───────────┬───────────┘
+                                │
+                                │ Product_ID
+                                ▼
+                    ┌───────────────────────┐
+                    │       📦 PRODUCTS     │
+                    │    Product_ID         │
+                    │    Product_Name       │
+                    │    Category           │
+                    │    Brand              │
+                    │    Selling_Price      │
+                    │    Discount_Percent   │
+                    └───────────────────────┘
+```
+
+---
 
 # 🛠️ Tools & Technologies
 
-```{=html}
-<p align="center">
+| 🛠️ Tool / Technology | 🎯 Purpose |
+|---|---|
+| 🐬 **MySQL** | Database Management |
+| 💻 **MySQL Workbench** | SQL Development & Query Execution |
+| 🧠 **SQL** | Data Analysis |
+| 🗃️ **Relational Database** | Data Storage |
+| 📊 **Dashboard** | Business Visualization |
+| 📝 **GitHub** | Project Documentation |
+
+---
+
+# 🧠 SQL Concepts Used
+
+### 🔹 Basic SQL
+```sql
+SELECT
+WHERE
+ORDER BY
+DISTINCT
+LIMIT
 ```
-`<img src="https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=flat-square&logo=mysql&logoColor=white">`{=html}
-`<img src="https://img.shields.io/badge/SQL-Data%20Analysis-00A98F?style=flat-square">`{=html}
-`<img src="https://img.shields.io/badge/GitHub-Version%20Control-181717?style=flat-square&logo=github&logoColor=white">`{=html}
-`<img src="https://img.shields.io/badge/Data%20Analytics-Portfolio-FFB000?style=flat-square">`{=html}
-```{=html}
-</p>
+
+### 🔹 Aggregate Functions
+```sql
+COUNT()
+SUM()
+AVG()
+MIN()
+MAX()
+ROUND()
 ```
-### Main Technology
 
-**MySQL 8.0+**
+### 🔹 Grouping
+```sql
+GROUP BY
+HAVING
+```
 
-### Recommended SQL Environment
+### 🔹 Conditional Logic
+```sql
+CASE
+WHEN
+THEN
+ELSE
+END
+```
 
--   MySQL Workbench
--   MySQL Server 8.0+
--   GitHub
+### 🔹 Joins
+```sql
+INNER JOIN
+LEFT JOIN
+```
 
-------------------------------------------------------------------------
+### 🔹 Date Functions
+```sql
+YEAR()
+MONTH()
+MONTHNAME()
+QUARTER()
+DATEDIFF()
+```
+
+### 🔹 Other Concepts
+- Subqueries
+- NULL handling
+- Data filtering
+- Sorting
+- Distinct values
+
+---
+
+# 🔄 Data Analysis Workflow
+
+```text
+                 📥 RAW E-COMMERCE DATA
+                           │
+                           ▼
+                  🗄️ CREATE DATABASE
+                           │
+                           ▼
+                    📋 CREATE TABLES
+                           │
+                           ▼
+                   🔍 DATA EXPLORATION
+                           │
+                           ▼
+                  🧹 DATA UNDERSTANDING
+                           │
+                           ▼
+                  📊 BUSINESS QUESTIONS
+                           │
+                           ▼
+                    🧮 SQL ANALYSIS
+                           │
+              ┌────────────┼────────────┐
+              ▼            ▼            ▼
+          👥 CUSTOMER   📦 PRODUCT    🛒 SALES
+              │            │            │
+              └────────────┼────────────┘
+                           ▼
+                      🔗 JOINS
+                           │
+                           ▼
+                  📈 BUSINESS INSIGHTS
+                           │
+                           ▼
+                    📊 DASHBOARD
+                           │
+                           ▼
+                      🎯 CONCLUSION
+```
+
+---
+
+# 📊 Business Questions Covered
+
+The project contains **52 important business questions**.
+
+## 📌 Basic Business Overview
+
+1. How many customers are present?
+2. How many products are available?
+3. How many sales/order records are present?
+4. What is the total revenue generated?
+5. What is the total quantity of products sold?
+6. What is the average order value?
+7. What is the highest order value?
+8. What is the lowest order value?
+9. How many unique cities are represented?
+10. How many unique states are represented?
+
+## 📌 Sales & Order Analysis
+
+11. Orders by order status
+12. Available payment methods
+13. Highest-value orders above 50,000
+14. Revenue by state
+15. Top 10 states by revenue
+16. Revenue by payment mode
+17. Orders by payment mode
+18. Revenue by order status
+19. Monthly revenue trend
+20. Yearly revenue
+
+## 📌 Location & Customer Analysis
+
+21. Quarterly revenue
+22. Revenue by city
+23. Top 10 cities by revenue
+24. Revenue by customer age group
+25. Age group with highest orders
+26. Age group with highest revenue
+27. States with more than 100 unique customers
+28. Customers with more than 5 orders
+29. Repeat customers
+
+## 📌 Product & Category Analysis
+
+30. Average rating by category
+31. Product count by category
+32. Product count by brand
+33. Average selling price by category
+34. Revenue by product category
+35. Revenue by brand
+36. Top revenue-generating products
+37. Products with highest sales quantity
+38. Category with highest quantity sold
+
+## 📌 Discount & Pricing Analysis
+
+39. Products with discount of 20% or more
+40. Average discount percentage by category
+41. Difference between original and selling price
+42. Products with highest number of reviews
+43. Products by discount bucket
+
+## 📌 Customer & Payment Insights
+
+44. Revenue by customer tier
+45. Highest revenue-generating customers
+46. Average order value by payment mode
+47. Most preferred payment mode
+
+## 📌 Delivery & Business Performance
+
+48. Delivery success percentage
+49. Average delivery time
+50. States with highest average delivery time
+
+## 📌 Subquery Analysis
+
+51. Orders above average order value
+52. Products above overall average rating
+
+---
+
+# 📈 Analysis Areas
+
+## 💰 Revenue Analysis
+
+Revenue is analyzed using:
+
+```sql
+SUM(Total_Amount)
+```
+
+Analysis levels include:
+
+```text
+🌍 State
+🏙️ City
+📦 Category
+🏷️ Brand
+👥 Customer
+💳 Payment Mode
+📅 Month
+📆 Year
+📊 Quarter
+```
+
+---
+
+## 👥 Customer Analysis
+
+```text
+                 👥 CUSTOMER
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+      🎂 Age       👑 Tier     🌍 Location
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+                 🛒 Orders
+                      │
+              ┌───────┴───────┐
+              ▼               ▼
+         👤 One-Time      🔁 Repeat
+         Customer         Customer
+```
+
+---
+
+## 📦 Product Analysis
+
+Product performance is evaluated using:
+
+- 💰 Revenue
+- 📦 Quantity Sold
+- ⭐ Average Rating
+- 📝 Total Reviews
+- 🏷️ Discount Percentage
+- 💵 Selling Price
+- 🗂️ Category
+- 🏷️ Brand
+
+---
+
+## 💳 Payment Analysis
+
+Payment methods are analyzed using:
+
+- 📊 Number of orders
+- 💰 Total revenue
+- 💵 Average order value
+
+Payment methods include:
+
+```text
+💳 UPI
+💵 COD
+💳 Debit Card
+💳 Credit Card
+```
+
+---
+
+## 🚚 Delivery Analysis
+
+Delivery performance is measured using:
+
+```sql
+DATEDIFF(Delivery_Date, Order_Date)
+```
+
+### Key KPIs
+
+```text
+🚚 Delivery Success %
+⏱️ Average Delivery Days
+🌍 State-wise Delivery Time
+```
+
+---
+
+## 🏷️ Discount Analysis
+
+Products are divided into:
+
+```text
+🟢 No Discount      → 0%
+🟡 Low Discount     → 1% – 10%
+🟠 Medium Discount  → 11% – 20%
+🔴 High Discount    → >20%
+```
+
+---
+
+# 💡 Key Insights
+
+> These insights are based on the dashboard/business-insight section
+> contained in the SQL project.
+
+### 📈 1. Sales Growth
+
+The dashboard presents an overall positive sales trend with multiple
+high-performing months. Monthly revenue analysis identifies the months
+responsible for the strongest revenue contribution.
+
+### 🌍 2. Geographic Performance
+
+The dashboard highlights:
+
+```text
+🇮🇳 Uttar Pradesh
+🇮🇳 Rajasthan
+🇮🇳 Haryana
+```
+
+as major sales-contributing states.
+
+### 👥 3. Customer Age Group
+
+The dashboard highlights:
+
+```text
+🥇 26–35
+🥈 18–25
+🥉 36–45
+```
+
+as important customer segments in the transaction mix.
+
+### 💳 4. Payment Preference
+
+The dashboard highlights:
+
+```text
+🥇 UPI
+🥈 COD
+🥉 Debit Card
+4️⃣ Credit Card
+```
+
+### 🚚 5. Delivery Performance
+
+The dashboard indicates a high proportion of successfully delivered
+orders. Delivery success percentage and average delivery time provide
+operational KPIs.
+
+### 🔁 6. Customer Engagement
+
+The analysis focuses on repeat-order activity and separates one-time
+customers from customers who place multiple orders.
+
+### 📦 7. Product Performance
+
+Product-level analysis combines revenue, quantity sold, rating and
+review counts to understand product contribution.
+
+### 🏷️ 8. Discount Analysis
+
+Discount buckets separate products into no-discount, low, medium and
+high-discount groups.
+
+### 🚛 9. Operational Performance
+
+Shipping cost and delivery-time analysis by state can reveal geographic
+differences in fulfillment performance.
+
+### 👑 10. Customer Value
+
+Customer-level revenue and customer-tier analysis identify customers
+contributing the greatest monetary value.
+
+---
+
+# 📊 Project Highlights
+
+| 📌 Area | 🔍 Analysis |
+|---|---|
+| 💰 Revenue | State, City, Category, Brand & Customer |
+| 👥 Customers | Age Group, Tier & Repeat Customers |
+| 📦 Products | Category, Brand, Rating & Quantity |
+| 💳 Payments | Orders, Revenue & Average Order Value |
+| 🚚 Delivery | Success Rate & Delivery Time |
+| 🏷️ Discounts | Discount Percentage & Buckets |
+| 📅 Time | Monthly, Quarterly & Yearly |
+| 🌍 Geography | State & City Performance |
+
+---
+
+# 🧮 Sample SQL Queries
+
+## 💰 State-wise Revenue
+
+```sql
+SELECT
+    State,
+    ROUND(SUM(Total_Amount), 2) AS Total_Revenue
+FROM sales
+GROUP BY State
+ORDER BY Total_Revenue DESC;
+```
+
+## 🏆 Top 10 States by Revenue
+
+```sql
+SELECT
+    State,
+    ROUND(SUM(Total_Amount), 2) AS Total_Revenue
+FROM sales
+GROUP BY State
+ORDER BY Total_Revenue DESC
+LIMIT 10;
+```
+
+## 📦 Category-wise Revenue
+
+```sql
+SELECT
+    p.Category,
+    ROUND(SUM(s.Total_Amount), 2) AS Total_Revenue
+FROM sales s
+INNER JOIN products p
+    ON s.Product_ID = p.Product_ID
+GROUP BY p.Category
+ORDER BY Total_Revenue DESC;
+```
+
+## 🔁 Repeat Customers
+
+```sql
+SELECT
+    Customer_ID,
+    COUNT(DISTINCT Order_ID) AS Total_Orders
+FROM sales
+GROUP BY Customer_ID
+HAVING COUNT(DISTINCT Order_ID) > 1
+ORDER BY Total_Orders DESC;
+```
+
+## 🚚 Delivery Success Percentage
+
+```sql
+SELECT
+    ROUND(
+        100.0 *
+        SUM(
+            CASE
+                WHEN Order_Status = 'Delivered'
+                THEN 1
+                ELSE 0
+            END
+        ) / COUNT(*),
+        2
+    ) AS Delivery_Success_Percentage
+FROM sales;
+```
+
+## ⭐ Products Above Average Rating
+
+```sql
+SELECT
+    Product_ID,
+    Product_Name,
+    Avg_Rating
+FROM products
+WHERE Avg_Rating > (
+    SELECT AVG(Avg_Rating)
+    FROM products
+)
+ORDER BY Avg_Rating DESC;
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+📦 Flipkart-SQL-Data-Analytics
+│
+├── 📄 Flipkart Sql Project.sql
+├── 📄 README.md
+│
+├── 📊 Dashboard
+│   └── Flipkart Dashboard
+│
+└── 📂 Dataset
+    ├── 👥 customers.csv
+    ├── 📦 products.csv
+    └── 🛒 sales.csv
+```
+
+---
 
 # 🚀 How to Run the Project
 
-## 1️⃣ Install MySQL
+### 1️⃣ Install MySQL
 
-Install **MySQL Server 8.0+** and optionally MySQL Workbench.
+Install MySQL Server and MySQL Workbench.
 
-------------------------------------------------------------------------
+### 2️⃣ Create Database
 
-## 2️⃣ Create a Database
-
-``` sql
-CREATE DATABASE flipkart_sales_analysis;
-
-USE flipkart_sales_analysis;
+```sql
+CREATE DATABASE flipkart_db;
 ```
 
-------------------------------------------------------------------------
+### 3️⃣ Select Database
 
-## 3️⃣ Create the Tables
+```sql
+USE flipkart_db;
+```
 
-Create the following tables:
+### 4️⃣ Create Tables
 
-``` text
+Create:
+
+```text
 customers
 products
 sales
 ```
 
-Make sure the column names match the SQL queries.
+### 5️⃣ Load Dataset
 
-------------------------------------------------------------------------
+Load the customer, product and sales data into the respective tables.
 
-## 4️⃣ Load the Data
-
-Import the data into the corresponding tables:
-
-``` text
-customers → customers table
-products  → products table
-sales     → sales table
-```
-
-------------------------------------------------------------------------
-
-## 5️⃣ Run the SQL File
+### 6️⃣ Run SQL File
 
 Open:
 
-``` text
-Flipkart_Sales_Analysis.sql
+```text
+Flipkart Sql Project.sql
 ```
 
-Run the queries in MySQL Workbench.
+and execute the queries in MySQL Workbench.
 
-------------------------------------------------------------------------
+### 7️⃣ Analyze Results
 
-## 6️⃣ Explore the Results
+Analyze:
 
-Start with:
-
-``` text
-Q1 → Basic Data Exploration
-Q16 → State Revenue
-Q18 → Payment Revenue
-Q21 → Monthly Trend
-Q22 → Yearly Revenue
-Q26 → Age Group Analysis
-Q34 → Category Revenue
-Q35 → Brand Revenue
-Q43 → Top Products
-Q44 → Customer Tier Revenue
-Q57 → Top Customers
-Q63 → State Contribution
-Q73 → Preferred Payment Mode
-Q75 → Delivery Time
+```text
+💰 Revenue
+👥 Customers
+📦 Products
+🛒 Orders
+💳 Payments
+🚚 Delivery
+🏷️ Discounts
+🌍 Geography
+📅 Time Trends
 ```
 
-------------------------------------------------------------------------
+---
 
-# 📁 Project Structure
+# 🌟 Skills Demonstrated
 
-Recommended GitHub repository structure:
-
-``` text
-📦 Flipkart-Sales-Analysis
-│
-├── 📄 README.md
-├── 📄 Flipkart_Sales_Analysis.sql
-│
-├── 📁 assets
-│   ├── 🖼️ flipkart-dashboard.png
-│   ├── 🖼️ revenue-analysis.png
-│   └── 🖼️ customer-analysis.png
-│
-└── 📁 data
-    ├── customers.csv
-    ├── products.csv
-    └── sales.csv
+```text
+🐬 MySQL
+🧠 SQL Problem Solving
+🔍 Data Exploration
+📊 Data Analysis
+🧮 Aggregation
+🔗 Table Joins
+👥 Customer Analytics
+📦 Product Analytics
+💰 Revenue Analytics
+🚚 Operational Analytics
+📅 Time-Based Analysis
+📈 Business Insights
 ```
 
-> You can add your dashboard screenshots inside `assets/` and update the
-> image names in this README.
+---
 
-------------------------------------------------------------------------
+# 🏁 Conclusion
 
-# 📊 Suggested Dashboard Sections
+This **Flipkart SQL Data Analytics Project** demonstrates how raw
+e-commerce transaction data can be transformed into structured
+business information using MySQL.
 
-If this SQL project is connected to a BI dashboard, the dashboard can be
-organized into:
+The project moves from basic data exploration to business analysis using:
 
-### 🏠 Overview
-
--   Total Revenue
--   Total Orders
--   Total Quantity
--   Average Order Value
--   Delivery Success %
-
-### 💰 Sales Analysis
-
--   Monthly Revenue
--   Quarterly Revenue
--   Yearly Revenue
--   Revenue by Order Status
-
-### 🌍 Geography
-
--   State Revenue
--   Top 10 States
--   City Revenue
--   Top 10 Cities
-
-### 👥 Customer Analysis
-
--   Age Group Revenue
--   Customer Tier Revenue
--   Top Customers
--   Repeat Customers
-
-### 📦 Product Analysis
-
--   Category Revenue
--   Brand Revenue
--   Top Products
--   Quantity Sold
--   Ratings & Reviews
-
-### 💳 Payment Analysis
-
--   Payment Mode Revenue
--   Payment Mode Orders
--   Average Order Value by Payment Mode
-
-### 🚚 Delivery Analysis
-
--   Delivery Success %
--   Average Delivery Days
--   State-wise Delivery Time
-
-------------------------------------------------------------------------
-
-# 🧩 SQL Learning Journey
-
-This project demonstrates a progression from simple SQL queries to
-practical business analysis:
-
-``` text
-BEGINNER
-   │
-   ├── SELECT
-   ├── WHERE
-   ├── DISTINCT
-   ├── ORDER BY
-   └── LIMIT
-   │
-   ▼
-INTERMEDIATE
-   │
-   ├── COUNT / SUM / AVG
-   ├── GROUP BY
-   ├── HAVING
-   ├── CASE
-   └── Date Functions
-   │
-   ▼
-PRACTICAL ANALYTICS
-   │
-   ├── INNER JOIN
-   ├── LEFT JOIN
-   ├── Subqueries
-   ├── Revenue Analysis
-   ├── Customer Analysis
-   └── Product Analysis
-   │
-   ▼
-ADVANCED
-   │
-   └── Window Functions
-       ├── RANK()
-       ├── LAG()
-       └── ROW_NUMBER()
+```text
+SELECT
+WHERE
+ORDER BY
+GROUP BY
+HAVING
+CASE
+JOIN
+Aggregation
+Date Functions
+Subqueries
 ```
 
-------------------------------------------------------------------------
+The analysis provides a framework for understanding:
 
-# 📌 Conclusion
+- 💰 Product performance
+- 🏷️ Discounts and coupons
+- 👥 Customer value
+- 💳 Payment behavior
+- 🌍 Geographic performance
+- 🚚 Delivery operations
+- 📅 Monthly trends
+- 🔁 Customer engagement
 
-The **Flipkart Sales Analysis** project demonstrates how SQL can be used
-to transform transactional e-commerce data into meaningful business
-information.
+The SQL analysis can also serve as the analytical backend for an
+Excel/dashboard-based Data Analytics project.
 
-The analysis covers the complete journey from **basic data exploration
-to business-focused insights**, including:
+---
 
--   💰 Revenue performance
--   📈 Sales trends
--   🌍 Geographical performance
--   👥 Customer behavior
--   📦 Product performance
--   🏷️ Brand analysis
--   💳 Payment preferences
--   🎁 Discount analysis
--   ⭐ Ratings and reviews
--   🚚 Delivery performance
+# 🎯 Final Project Flow
 
-The project also demonstrates practical SQL skills including
-**aggregation, filtering, grouping, conditional logic, joins, subqueries
-and date-based analysis**.
-
-Overall, this project provides a strong practical example of using SQL
-for **e-commerce data analysis and business decision support**.
-
-------------------------------------------------------------------------
-
-# 🏆 Skills Demonstrated
-
-```{=html}
-<p align="center">
+```text
+             🛒 FLIPKART DATA
+                    │
+                    ▼
+              🗄️ MYSQL DATABASE
+                    │
+                    ▼
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+     👥 CUSTOMERS 📦 PRODUCTS 🛒 SALES
+        │           │           │
+        └───────────┼───────────┘
+                    ▼
+                 🔗 JOINS
+                    │
+                    ▼
+             🧠 SQL ANALYSIS
+                    │
+                    ▼
+             📊 52 QUESTIONS
+                    │
+                    ▼
+             💡 KEY INSIGHTS
+                    │
+                    ▼
+              📈 DASHBOARD
+                    │
+                    ▼
+              🎯 BUSINESS
+                INSIGHTS
 ```
-`SQL` • `MySQL` • `Data Cleaning` • `Data Exploration` • `Data Analysis`
-• `Business Analysis` • `Aggregation` • `Joins` • `Subqueries` •
-`CASE Statements` • `Date Analysis` • `E-commerce Analytics`
 
-```{=html}
-</p>
-```
-
-------------------------------------------------------------------------
+---
 
 # 👨‍💻 Author
 
+<div align="center">
+
 ## **Abhishek Verma**
 
-🎓 **Data Analytics / SQL Project**
+### 📊 Data Analytics Enthusiast
 
-💡 Interested in:
+**SQL | MySQL | Excel | Python | Data Analytics**
 
--   Data Analytics
--   SQL
--   Business Intelligence
--   Data Visualization
--   E-commerce Analytics
+<br>
 
-------------------------------------------------------------------------
+<img src="https://img.shields.io/badge/Author-Abhishek%20Verma-blue?style=for-the-badge">
+<img src="https://img.shields.io/badge/Field-Data%20Analytics-orange?style=for-the-badge">
+<img src="https://img.shields.io/badge/Project-SQL%20Analytics-success?style=for-the-badge">
 
-# ⭐ Support the Project
+<br><br>
 
-If you found this project useful:
+### ⭐ If you found this project useful, consider giving it a Star!
 
-⭐ **Star the repository**
+⭐ **Star this Repository**  
+🍴 **Fork this Repository**  
+📢 **Share this Project**
 
-🍴 **Fork the repository**
+</div>
 
-💬 **Share your feedback**
+---
 
-------------------------------------------------------------------------
+<div align="center">
 
-```{=html}
-<p align="center">
-```
-`<b>`{=html}🛒 Flipkart Sales Analysis`</b>`{=html}`<br>`{=html}
-`<i>`{=html}Turning SQL queries into meaningful business
-insights.`</i>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
-`<sub>`{=html}Made with ❤️ using MySQL & SQL`</sub>`{=html}
-```{=html}
-</p>
-```
+# 🛒 Flipkart E-Commerce Sales Analysis
+
+### Turning Data → SQL Analysis → Insights → Business Understanding
+
+<br>
+
+<img src="https://img.shields.io/badge/Made%20with-SQL-blue?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Hosted%20on-GitHub-black?style=for-the-badge&logo=github">
+
+<br><br>
+
+**© 2026 Abhishek Verma**
+
+</div>
